@@ -3,6 +3,10 @@
   align-items: stretch;
   height: 100vh;
 
+  @media (max-width: 800px){
+    flex-direction: column;
+  }
+
   aside {
     flex: 7;
 
@@ -36,7 +40,7 @@
   main {
     flex: 8;
 
-    padding: 0 32px;
+    padding: 32px;
 
     display: flex;
     align-items: center;
