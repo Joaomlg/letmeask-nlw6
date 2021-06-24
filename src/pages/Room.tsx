@@ -21,9 +21,9 @@ export function Room () {
   const { user } = useAuth();
   const params = useParams<RoomParams>();
   const [newQuestion, setNewQuestion] = useState('');
-
+  
   const roomId = params.id;
-
+  
   const { title, questions } = useRoom(roomId);
 
   async function handleSendQuestion(event: FormEvent) {
@@ -83,6 +83,18 @@ export function Room () {
             <Button type="submit" disabled={!user}>Envar pergunta</Button>
           </div>
         </form>
+        
+        <div className="question-list">
+          {questions.map((question => {
+            return (
+              <Question 
+                key={question.id}
+                content={question.content} 
+                author={question.author} 
+              />
+            );
+          }))}
+        </div>
       </main>
     </div>
   )
