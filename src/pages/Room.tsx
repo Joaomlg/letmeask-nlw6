@@ -1,5 +1,5 @@
 import { useState, FormEvent } from 'react';
-import { useParams } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 
 import { database } from '../services/firebase';
 import { useAuth } from '../hooks/useAuth';
@@ -19,6 +19,7 @@ type RoomParams = {
 
 export function Room () {
   const { user, signInWithGoogle } = useAuth();
+  const history = useHistory();
   const params = useParams<RoomParams>();
   const [newQuestion, setNewQuestion] = useState('');
   
@@ -62,12 +63,19 @@ export function Room () {
     }
   }
 
+  async function handleGoOutRoom() {
+    history.push('/');
+  }
+
   return (
     <div id="page-room">
       <header>
         <div className="content">
           <img src={logoImg} alt="Letmeask" />
+          <div>
           <RoomCode code={roomId} />
+            <Button isOutlined onClick={handleGoOutRoom}>Sair da sala</Button>
+          </div>
         </div>
       </header>
       <main>
