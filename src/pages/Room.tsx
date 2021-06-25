@@ -6,6 +6,7 @@ import { useAuth } from '../hooks/useAuth';
 import { useRoom } from '../hooks/useRoom';
 
 import logoImg from '../assets/images/logo.svg';
+import emptyQuestionsImg from '../assets/images/empty-questions.svg';
 
 import { Button } from '../components/Button';
 import { RoomCode } from '../components/RoomCode';
@@ -73,7 +74,7 @@ export function Room () {
         <div className="content">
           <img src={logoImg} alt="Letmeask" />
           <div>
-          <RoomCode code={roomId} />
+            <RoomCode code={roomId} />
             <Button isOutlined onClick={handleGoOutRoom}>Sair da sala</Button>
           </div>
         </div>
@@ -129,6 +130,14 @@ export function Room () {
             );
           }))}
         </div>
+
+        {questions.length === 0 && (
+          <div className="empty-question-list">
+            <img src={emptyQuestionsImg} alt="nenhuma pergunta" />
+            <strong>Nenhuma pergunta por aqui...</strong>
+            <p>Faça seu login e seja a primeira pessoa a fazer uma pergunta!</p>
+          </div>
+        )}
       </main>
     </div>
   )
