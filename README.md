@@ -22,6 +22,10 @@ You can see the layout of this project in [Figma](https://www.figma.com/file/u0B
 
 ## ⚙ Future features
 
+- [ ] Use toasts to notify
+- [ ] Use modals to interact with user
+- [ ] Process highlighted and answered questions position
+- [ ] Home page with an introduction to the software
 - [ ] Responsiveness
 - [ ] PWA support
 - [ ] Dark mode
